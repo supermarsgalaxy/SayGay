@@ -51,3 +51,15 @@ body {
   font-size: 46px;
   margin: 8px;
 }
+
+a {
+  color: white;
+  font-weight: bold;
+}
+
+#defbox {
+  border: 2px solid white;
+  height: 50px;
+  margin: 2em;
+  padding: 2em;
+}
