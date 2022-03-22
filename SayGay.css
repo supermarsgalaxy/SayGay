@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   margin: 20px;
-  height: 800px;
+  height: 850px;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   align-items: flex-end;
   background-image: url(https://images.unsplash.com/photo-1604276168984-def2763af8e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGxnYnRxfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
   background-repeat: no-repeat;
-  background-size: 450px 800px;
+  background-size: 450px 850px;
   color: white;
 }
 .container {
@@ -24,6 +24,7 @@ body {
 }
 #child2 {
   width: 1000px;
+  text-shadow: 2px 2px 4px #7f7fab;
 }
 
 .infobox {
@@ -52,14 +53,38 @@ body {
   margin: 8px;
 }
 
-a {
+a:link,
+a:visited {
   color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   font-weight: bold;
+  border: 2px solid white;
+  border-radius: 10px;
+  transition-duration: 0.4s;
 }
 
-#defbox {
-  border: 2px solid white;
+a:hover,
+a:active {
+  background-color: #7f7fab;
+}
+
+#word-definition {
+  font-size: 22px;
+}
+button {
+  background-color: transparent;
+  background-image: url(https://img.icons8.com/external-colours-bomsymbols-/2x/external-audio-multimedia-colors-colours-bomsymbols--9.png);
+  background-size: 50px 50px;
   height: 50px;
-  margin: 2em;
-  padding: 2em;
+  width: 50px;
+  border: transparent;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: #7f7fab;
+  cursor: pointer;
 }
