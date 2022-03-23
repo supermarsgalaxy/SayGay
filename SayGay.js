@@ -101,7 +101,7 @@ const definition = [
   "a woman who is attracted to other women; women and non-binary people may use this term to describe themselves",
   "a gender identity that is neither female nor male, outside of or beyond the two traditional concepts of male or female",
   "person who experiences attraction for members of all gender identities/expressions",
-  "umbrella term to refer to all LGBTQ+ people; also a non-binary term used by individuals who see their sexual orientation and/or gender identity as fluid",
+  "umbrella term to refer to LGBTQ+ people; also a way to describe a person's sexual orientation and/or gender identity that's fluid",
   "person who is in the process of questioning or analyzing their sexual orientation, gender identity, or gender expression",
   "person whose gender identity is different from their assigned sex at birth",
   "Native American's who identify with a 3rd gender, a masculine & a feminine spirit in one body",
@@ -188,11 +188,11 @@ function checkStatus() {
 }
 
 //text to speech audio
-function textoAudio() {
+function texttoAudio() {
   let speech = new SpeechSynthesisUtterance(currentWord);
   speech.text = currentWord;
   speech.volume = 1;
   window.SpeechSynthesis.speak(speech);
 }
 
-button.addEventListener("click", function texttoAudio);
+button.addEventListener("click", texttoAudio);
