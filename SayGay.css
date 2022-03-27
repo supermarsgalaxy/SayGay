@@ -49,7 +49,6 @@ body {
   text-align: center;
 }
 #title {
-  font-size: 46px;
   margin: 8px;
 }
 
@@ -74,7 +73,7 @@ a:active {
 #word-definition {
   font-size: 22px;
 }
-button {
+#audio-button {
   background-color: transparent;
   background-image: url(https://img.icons8.com/external-colours-bomsymbols-/2x/external-audio-multimedia-colors-colours-bomsymbols--9.png);
   background-size: 50px 50px;
@@ -84,7 +83,7 @@ button {
   border-radius: 50%;
   transition-duration: 0.4s;
 }
-button:hover {
+#audio-button:hover {
   background-color: #7f7fab;
   cursor: pointer;
 }

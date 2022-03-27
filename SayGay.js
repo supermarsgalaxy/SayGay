@@ -23,6 +23,7 @@ const scoreDisplay = document.querySelector("#score");
 const timeDisplay = document.querySelector("#time");
 const message = document.querySelector("#message");
 const seconds = document.querySelector("#seconds");
+const sounds = document.querySelector("#word-audio");
 const button = document.querySelector("#audio-button");
 
 const words = [
@@ -32,7 +33,7 @@ const words = [
   "asexual",
   "she/her",
   "they/them",
-  "he/his",
+  "he/him",
   "neopronouns",
   "androsexual",
   "biromantic",
@@ -113,7 +114,59 @@ const definition = [
   "person transitioning from male to female",
   "person transitioning from female to male",
 ];
-
+const pronunciation = [
+  "https://en-audio.howtopronounce.com/18e71b289c84d9b948bfb4817925d64c.mp3",
+  "https://en-audio.howtopronounce.com/937d44dbc806b7b57360466cd4d6c225.mp3",
+  "https://en-audio.howtopronounce.com/15784011955e147dabe1da0.mp3",
+  "https://www.macmillandictionary.com/media/american/us_pron/a/ase/asexu/asexual_American_English_pronunciation.mp3",
+  [
+    "https://en-audio.howtopronounce.com/15785174285e1643b4641a9.mp3",
+    "https://en-audio.howtopronounce.com/90c4d9814270dec91cb677c6182f3ff9.mp3",
+  ],
+  [
+    "https://en-audio.howtopronounce.com/15785384335e1695c17ca3c.mp3",
+    "https://en-audio.howtopronounce.com/15785346535e1686fdf2f4f.mp3",
+  ],
+  [
+    "https://dictionary.cambridge.org/us/media/english/us_pron/h/he_/he___/he.mp3",
+    "https://en-audio.howtopronounce.com/15782105855e119519e5ebd.mp3",
+  ],
+  "neopronouns",
+  "https://en-audio.howtopronounce.com/15798733665e2af45626ec8.mp3",
+  "https://static.sfdict.com/audio/lunawav/NEW2016/biromantic_010.ogg",
+  "https://assets.seeking.com/images/glossary/audio/demiromantic.mp3",
+  "https://dictionary.cambridge.org/us/media/english/us_pron/e/eus/eus72/eus72247.mp3",
+  "monosexual",
+  "https://static.sfdict.com/audio/NEW2016/omnisexual_000.mp3",
+  "https://static.sfdict.com/audio/NEW2016/panromantic_000.mp3",
+  "https://static.sfdict.com/audio/P01/P0151400.mp3",
+  "https://en-audio.howtopronounce.com/15799020725e2b6478c0380.mp3",
+  "https://en-audio.howtopronounce.com/16160430616052dc35995c3.mp3",
+  "https://en-audio.howtopronounce.com/11a49e95daf9b9ad9f722603e26f20ec.mp3",
+  "spectrasexual",
+  "https://en-audio.howtopronounce.com/164387461961fb893b313bf.mp3",
+  "https://en-audio.howtopronounce.com/16070763265fca09e6612ee.mp3",
+  "https://static.sfdict.com/audio/NEW2016/cisgender_000.mp3",
+  "https://static.sfdict.com/audio/B03/B0371300.mp3",
+  "https://static.sfdict.com/audio/NEW2016/genderfluid_000.mp3",
+  "https://static.sfdict.com/audio/G00/G0078300.mp3",
+  "https://static.sfdict.com/audio/NEW2016/genderqueer_000.mp3",
+  "https://en-audio.howtopronounce.com/15782276765e11d7dca0309.mp3",
+  "https://en-audio.howtopronounce.com/15783266485e135a78ee226.mp3",
+  "https://en-audio.howtopronounce.com/16035580035f945a7305afc.mp3",
+  "https://static.sfdict.com/audio/P00/P0068000.mp3",
+  "https://en-audio.howtopronounce.com/15754261715de7187b5e571.mp3",
+  "https://en-audio.howtopronounce.com/f94b3ab4d9151d3465987f134b6266bd.mp3",
+  "https://en-audio.howtopronounce.com/15785921235e17677b8e628.mp3",
+  "https://static.sfdict.com/audio/NEW2016/twospirit_000.mp3",
+  "https://static.sfdict.com/audio/NEW2016/aromantic_010.mp3",
+  "https://en-audio.howtopronounce.com/e4c1c2e435f3ea0ea081c126830200e8.mp3",
+  "https://static.sfdict.com/audio/B03/B0336900.mp3",
+  "https://en-audio.howtopronounce.com/653160149feb87dc789252e47b0ec127.mp3",
+  "https://en-audio.howtopronounce.com/9f33dc972eef4f88c271cadafb9829d4.mp3",
+  "MTF - no audio, online lingo",
+  "FTM - no audio, online lingo",
+];
 //initialize game
 function init() {
   //show number of seconds in UI
@@ -163,6 +216,8 @@ function showWords(words) {
   //output random word
   currentWord.innerHTML = words[randIndex];
   def.innerHTML = definition[randIndex];
+  sounds.src = pronunciation[randIndex];
+  sounds.autoplay = false;
 }
 
 //countdown timer
@@ -187,12 +242,7 @@ function checkStatus() {
   }
 }
 
-//text to speech audio
-function texttoAudio() {
-  let speech = new SpeechSynthesisUtterance(currentWord);
-  speech.text = currentWord;
-  speech.volume = 1;
-  window.SpeechSynthesis.speak(speech);
+function playAudio() {
+  document.getElementById("word-audio").play();
 }
-
-button.addEventListener("click", texttoAudio);
+button.addEventListener("click", playAudio);
